@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://lukoktonos.github.io/lukoktonos.com/"
 
-title = "Luke Osborne"
+title = "Home"
 description = "Luke Osborne's personal webpage"
 compile_sass = true
 
