@@ -1,0 +1,81 @@
+# The URL the site will be built for
+base_url = "https://lukoktonos.github.io/lukoktonos.com/"
+
+title = "Luke Osborne"
+description = "Luke Osborne's personal webpage"
+compile_sass = true
+
+build_search_index = false
+
+theme = "duckquill"
+
+taxonomies = [
+    {name = "tags"},
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# Sets theme and browser theme color,
+# see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
+# primary_color = "#ff7800" # amber/orange
+# primary_color = "#0080ff" # blue
+primary_color = "#fa9200" # slightly more yellow amber-orange
+# Same as primary_color, but with 20% opacity
+primary_color_alpha = "rgba(255, 120, 0, 0.2)"
+# Emoji favicon; can be set per-page or even section.
+emoji_favicon = true
+# If the favicon is GIF or not
+animated_favicon = true
+# Tera date format (not used in comments!),
+# see https://docs.rs/chrono/0.4.31/chrono/format/strftime/index.html
+# for all available variables.
+date_format = "%d %B %Y"
+# URL to issue tracker
+issues_url = "https://github.com/lukoktonos/lukoktonos.com/issues"
+# URL to website's source code
+source_url = "https://github.com/lukoktonos/lukoktonos.com"
+# Additional stylesheets; expects it to be in the ./static/ directory.
+# If you are using Sass it will be compiled there anyway.
+# stylesheets = [
+#   "YOUR_STYLE.css",
+#   "ALSO_YOUR_STYLE.css"
+# ]
+
+[extra.nav]
+# Display Atom/RSS feed button in the nav
+show_feed = true
+# Links used in the nav
+links = [
+  {url = "https://github.com/lukoktonos/", name = "Github"},
+  {url = "$BASE_URL/blog", name = "Blog"},
+]
+
+[extra.footer]
+# URL to the website without the https:// part, used for Johnvertisement leaderboard
+johnvert_ref = "lukoktonos.com"
+# "© Title, YEAR" in the footer
+show_copyright = true
+# Johnvertisement in the footer
+show_johnvert = false
+# "Powered by Zola and Duckquill" in footer
+show_powered_by = false
+# Link to website source
+show_source = true
+
+# Based on https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/
+#
+# Mastodon-powered commenting.
+# Values can be overridden in front-matter, e.g.
+# for multi-author blogs or guest posts.
+#
+# These variables are also used for Mastodon verification,
+# the needed rel="me" link is set in the head based on these.
+[extra.comments]
+# Your Mastodon API host; this should be where you have an account
+host = "mstdn.social"
+# Used to determine who the original poster is
+user = "Daudix"
