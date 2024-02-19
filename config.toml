@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://lukoktonos.github.io/lukoktonos.com/"
 
-title = "Home"
+title = "Luke Osborne"
 description = "Luke Osborne's personal webpage"
 compile_sass = true
 
@@ -22,10 +22,10 @@ highlight_code = true
 # Sets theme and browser theme color,
 # see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
 # primary_color = "#ff7800" # amber/orange
-# primary_color = "#0080ff" # blue
-primary_color = "#fa9200" # slightly more yellow amber-orange
+primary_color = "#0080ff" # blue
+# primary_color = "#fa9200" # slightly more yellow amber-orange
 # Same as primary_color, but with 20% opacity
-primary_color_alpha = "rgba(255, 120, 0, 0.2)"
+primary_color_alpha = "rgba(0, 128, 255, 0.2)"
 # Emoji favicon; can be set per-page or even section.
 emoji_favicon = true
 # If the favicon is GIF or not
@@ -47,7 +47,7 @@ source_url = "https://github.com/lukoktonos/lukoktonos.com"
 
 [extra.nav]
 # Display Atom/RSS feed button in the nav
-show_feed = true
+show_feed = false
 # Links used in the nav
 links = [
   {url = "https://github.com/lukoktonos/", name = "Github"},
