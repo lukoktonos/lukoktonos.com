@@ -241,6 +241,8 @@ pre {
 }
 
 .theme-btn {
+  -webkit-appearance: none;
+  appearance: none;
   border: 1px solid transparent;
   font: inherit;
   font-size: 0.82rem;
