@@ -15,3 +15,7 @@ Cargo.lock
 
 # Zola build output
 public/
+
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store
