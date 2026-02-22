@@ -2,4 +2,16 @@
 
 {% block content %}
 {{ section.content | safe }}
+
+{% set blog = get_section(path="blog/_index.md") %}
+{% if blog.pages | length > 0 %}
+{% set latest = blog.pages[0] %}
+<section class="latest-post">
+  <h2>Latest Writing</h2>
+  <p class="latest-title"><a href="{{ latest.permalink }}">{{ latest.title }}</a></p>
+  {% if latest.date %}<p class="post-date">{{ latest.date }}</p>{% endif %}
+  <p>{{ latest.content | striptags | truncate(length=230) }}</p>
+  <p><a href="{{ latest.permalink }}">Read the full post -></a></p>
+</section>
+{% endif %}
 {% endblock content %}

@@ -158,6 +158,21 @@ pre {
   white-space: nowrap;
 }
 
+.latest-post {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(210, 172, 118, 0.35);
+}
+
+.latest-post h2 {
+  margin-bottom: 0.45rem;
+}
+
+.latest-title {
+  margin: 0;
+  font-weight: 700;
+}
+
 @media (max-width: 720px) {
   .shell {
     width: 94vw;
