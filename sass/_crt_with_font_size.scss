@@ -1,6 +1,0 @@
-@import "../themes/duckquill/sass/_crt.sass";
-
-@mixin crt_with_font_size {
-  @include crt();
-  font-size: "8px";
-}
