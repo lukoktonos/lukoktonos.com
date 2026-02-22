@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ config.description }}">
   <title>{% if page and page.title %}{{ page.title }} | {% elif section and section.title %}{{ section.title }} | {% endif %}{{ config.title }}</title>
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("terminal-theme");
+        if (theme) document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/site.css">
@@ -26,8 +34,41 @@
 
     <footer class="shell-footer">
       <span>&copy; {{ now() | date(format="%Y") }} Luke Osborne</span>
-      <a href="{{ config.extra.repo_url }}">source</a>
+      <div class="footer-controls">
+        <div class="theme-buttons" aria-label="Terminal color selector">
+          <button type="button" class="theme-btn theme-btn--amber" data-theme="amber">Amber</button>
+          <button type="button" class="theme-btn theme-btn--green" data-theme="green">Green</button>
+          <button type="button" class="theme-btn theme-btn--blue" data-theme="blue">Blue</button>
+        </div>
+        <a href="{{ config.extra.repo_url }}">source</a>
+      </div>
     </footer>
   </main>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll(".theme-btn");
+      if (!buttons.length) return;
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        try { localStorage.setItem("terminal-theme", theme); } catch (e) {}
+        buttons.forEach(function (button) {
+          var active = button.getAttribute("data-theme") === theme;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      }
+
+      var initial = root.getAttribute("data-theme") || "amber";
+      applyTheme(initial);
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.getAttribute("data-theme"));
+        });
+      });
+    })();
+  </script>
+  {% block extra_scripts %}{% endblock extra_scripts %}
 </body>
 </html>
