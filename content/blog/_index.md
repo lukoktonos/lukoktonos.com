@@ -1,5 +1,5 @@
 +++
 title = "Writings"
-description = "We'll see what I come up with to share here."
+description = "Notes on software engineering, systems, and leverage."
 sort_by = "date"
 +++
