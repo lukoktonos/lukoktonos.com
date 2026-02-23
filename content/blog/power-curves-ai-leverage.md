@@ -9,7 +9,11 @@ At a high level, we name part of that curve with career labels: junior, mid-leve
 
 Some of that spread is experience. Some of it is curiosity. Some of it is how often someone goes deep instead of stopping at the first working answer. Talent probably plays a role too, but in practice I notice who learns quickly and who consistently makes high-quality engineering choices.
 
-Most software work was never about raw typing speed, although curating an efficient development environment and learning your tools (IDE, editor, CLI commands, etc.) are themselves productivity multipliers that many people never properly take the time to curate. The hard part is choosing the right problem, reducing state and complexity, deciding what can fail and how, knowing what to measure, and being right about tradeoffs under real constraints.
+Most software work was never about raw typing speed, although curating an efficient development environment and learning your tools (IDE, editor, CLI commands, etc.) are themselves productivity multipliers that many people never properly take the time to curate.
+
+I still get surprised by the spread here. I will walk over to help someone debug an issue and find they have no real IDE setup, no editor/LSP workflow, weak command of basic Git commands, and no habit of trying new tools (for example, `kiro-cli` for AWS teams). Then I sit next to someone else whose setup is more thoughtfully curated than mine, and they are constantly picking up techniques from teammates. That difference in curiosity and setup quality compounds.
+
+The hard part is choosing the right problem, reducing state and complexity, deciding what can fail and how, knowing what to measure, and being right about tradeoffs under real constraints.
 
 These skills compound over time, and they stack. You rarely jump straight to strong distributed systems judgment without first getting solid at debugging, API design, and operational hygiene.
 
