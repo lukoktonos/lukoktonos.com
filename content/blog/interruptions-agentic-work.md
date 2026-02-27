@@ -11,7 +11,9 @@ AI helps with recovery. You can externalize state into prompts, notes, diffs, an
 
 At the same time, many of us now run several active streams: implementation in one pane, exploration in another, tests or cleanup in a third. These streams are related. They share assumptions, converge on the same interfaces, and invalidate each other when decisions change. So an interruption often preempts a coordinated set of streams, not a single linear task.
 
-The OS analogy is useful here. A context switch is the system pausing one unit of work, saving enough state to resume it later, selecting another runnable unit, restoring state, and continuing execution.
+Another analogy I keep coming back to: coding with agents feels a bit like playing StarCraft. You are managing multiple fronts, queues, and timing windows at once. If you interrupt someone in the middle of that, it rarely goes well. The interruption cost is not just "what was I doing?" It is "which things were synchronized, and what just drifted?"
+
+An OS analogy is useful here as well. A context switch is the system pausing one unit of work, saving enough state to resume it later, selecting another runnable unit, restoring state, and continuing execution.
 
 Switching between threads in one process is often cheaper because much of the memory context is shared. Switching between separate processes is typically heavier because process-level memory context changes, which is rougher on locality and cache warmth. Forked process trees are heavier still: parent and workers can be paused at different points, and resume now includes re-coordination, not just restart.
 
