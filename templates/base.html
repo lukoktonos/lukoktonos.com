@@ -8,7 +8,21 @@
   <script>
     (function () {
       try {
-        var theme = localStorage.getItem("terminal-theme");
+        function normalizeTheme(theme) {
+          if (theme === "amber") return "yellow";
+          return theme;
+        }
+
+        function seasonalTheme() {
+          var month = new Date().getMonth();
+          if (month === 11 || month === 0 || month === 1) return "blue";
+          if (month >= 2 && month <= 4) return "green";
+          if (month >= 5 && month <= 7) return "yellow";
+          return "red";
+        }
+
+        var theme = normalizeTheme(localStorage.getItem("terminal-theme"));
+        if (!theme) theme = seasonalTheme();
         if (theme) document.documentElement.setAttribute("data-theme", theme);
       } catch (e) {}
     })();
@@ -36,9 +50,10 @@
       <span>&copy; {{ now() | date(format="%Y") }} Luke Osborne</span>
       <div class="footer-controls">
         <div class="theme-buttons" aria-label="Terminal color selector">
-          <button type="button" class="theme-btn theme-btn--amber" data-theme="amber">Amber</button>
+          <button type="button" class="theme-btn theme-btn--yellow" data-theme="yellow">Yellow</button>
           <button type="button" class="theme-btn theme-btn--green" data-theme="green">Green</button>
           <button type="button" class="theme-btn theme-btn--blue" data-theme="blue">Blue</button>
+          <button type="button" class="theme-btn theme-btn--red" data-theme="red">Red</button>
         </div>
         <a href="{{ config.extra.repo_url }}">source</a>
       </div>
@@ -50,7 +65,21 @@
       var buttons = document.querySelectorAll(".theme-btn");
       if (!buttons.length) return;
 
+      function normalizeTheme(theme) {
+        if (theme === "amber") return "yellow";
+        return theme;
+      }
+
+      function seasonalTheme() {
+        var month = new Date().getMonth();
+        if (month === 11 || month === 0 || month === 1) return "blue";
+        if (month >= 2 && month <= 4) return "green";
+        if (month >= 5 && month <= 7) return "yellow";
+        return "red";
+      }
+
       function applyTheme(theme) {
+        theme = normalizeTheme(theme);
         root.setAttribute("data-theme", theme);
         try { localStorage.setItem("terminal-theme", theme); } catch (e) {}
         buttons.forEach(function (button) {
@@ -59,7 +88,7 @@
         });
       }
 
-      var initial = root.getAttribute("data-theme") || "amber";
+      var initial = normalizeTheme(root.getAttribute("data-theme")) || seasonalTheme();
       applyTheme(initial);
 
       buttons.forEach(function (button) {
