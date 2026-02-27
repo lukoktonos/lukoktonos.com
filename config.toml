@@ -4,6 +4,7 @@ description = "Luke Osborne's personal website"
 compile_sass = false
 build_search_index = false
 minify_html = true
+feed_filenames = ["atom.xml"]
 
 taxonomies = [{ name = "tags" }]
 

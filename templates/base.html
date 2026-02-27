@@ -31,6 +31,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='favicon-32.png', cachebust=true) }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='favicon-16.png', cachebust=true) }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ get_url(path='apple-touch-icon.png', cachebust=true) }}">
+  <link rel="alternate" type="application/atom+xml" title="Luke Osborne Blog Feed" href="{{ get_url(path='blog/atom.xml') }}">
   <link rel="stylesheet" href="{{ get_url(path='site.css', cachebust=true) }}">
 </head>
 <body>
@@ -40,6 +41,7 @@
       <a class="brand" href="{{ get_url(path='@/_index.md') }}">lukoktonos.com</a>
       <nav>
         <a href="{{ get_url(path='@/blog/_index.md') }}">blog</a>
+        <a href="{{ get_url(path='blog/atom.xml') }}">feed</a>
         <a href="{{ config.extra.github_url }}">github</a>
       </nav>
     </header>
