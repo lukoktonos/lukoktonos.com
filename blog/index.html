@@ -1,0 +1,106 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Luke Osborne's personal website" name=description><title>Writings | Luke Osborne</title><script>(function () {
+      try {
+        function normalizeTheme(theme) {
+          if (theme === "amber") return "yellow";
+          return theme;
+        }
+
+        function seasonalTheme() {
+          var month = new Date().getMonth();
+          if (month === 11 || month === 0 || month === 1) return "blue";
+          if (month >= 2 && month <= 4) return "green";
+          if (month >= 5 && month <= 7) return "yellow";
+          return "red";
+        }
+
+        var theme = normalizeTheme(localStorage.getItem("terminal-theme"));
+        if (!theme) theme = seasonalTheme();
+        if (theme) document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();</script><link href="https://lukoktonos.com/favicon.svg?h=ab4abb9c75fd6a26fc45" rel=icon type=image/svg+xml><link href="https://lukoktonos.com/favicon-32.png?h=6b732b0ca73ff769a2c7" rel=icon sizes=32x32 type=image/png><link href="https://lukoktonos.com/favicon-16.png?h=9ffbfdbfe2222df52136" rel=icon sizes=16x16 type=image/png><link href="https://lukoktonos.com/apple-touch-icon.png?h=cefaff518b24479ddd7c" rel=apple-touch-icon sizes=180x180><link title="Luke Osborne Blog Feed" href=https://lukoktonos.com/blog/atom.xml rel=alternate type=application/atom+xml><link href="https://lukoktonos.com/site.css?h=2537f98d5aa1c6d08c86" rel=stylesheet><body><div class=screen-noise></div><main class=shell><header class=shell-header><a class=brand href=https://lukoktonos.com/>lukoktonos.com</a><nav><a href=https://lukoktonos.com/blog/>blog</a><a href=https://lukoktonos.com/blog/atom.xml>feed</a><a href=https://github.com/lukoktonos>github</a></nav></header><section class=terminal><h1>Writings</h1><p>Notes on software engineering, systems, and leverage.<ul class=post-list><li><a href=https://lukoktonos.com/blog/where-did-i-put-that/>Where Did I Put That?</a> <span class=post-date>2026-03-03</span><li><a href=https://lukoktonos.com/blog/interruptions-agentic-work/>Interruptions Get More Expensive with Agentic Work</a> <span class=post-date>2026-02-26</span><li><a href=https://lukoktonos.com/blog/power-curves-ai-leverage/>AI Gives You Gears, Not Experience</a> <span class=post-date>2026-02-22</span></ul></section><footer class=shell-footer><span>© 2026 Luke Osborne</span><div class=footer-controls><div aria-label="Terminal color selector" class=theme-buttons><button class="theme-btn theme-btn--yellow" data-theme=yellow type=button>Yellow</button><button class="theme-btn theme-btn--green" data-theme=green type=button>Green</button><button class="theme-btn theme-btn--blue" data-theme=blue type=button>Blue</button><button class="theme-btn theme-btn--red" data-theme=red type=button>Red</button></div><a href=https://github.com/lukoktonos/lukoktonos.com>source</a></div></footer></main><script>(function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll(".theme-btn");
+      if (!buttons.length) return;
+
+      function normalizeTheme(theme) {
+        if (theme === "amber") return "yellow";
+        return theme;
+      }
+
+      function seasonalTheme() {
+        var month = new Date().getMonth();
+        if (month === 11 || month === 0 || month === 1) return "blue";
+        if (month >= 2 && month <= 4) return "green";
+        if (month >= 5 && month <= 7) return "yellow";
+        return "red";
+      }
+
+      function applyTheme(theme) {
+        theme = normalizeTheme(theme);
+        root.setAttribute("data-theme", theme);
+        try { localStorage.setItem("terminal-theme", theme); } catch (e) {}
+        buttons.forEach(function (button) {
+          var active = button.getAttribute("data-theme") === theme;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      }
+
+      var initial = normalizeTheme(root.getAttribute("data-theme")) || seasonalTheme();
+      applyTheme(initial);
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.getAttribute("data-theme"));
+        });
+      });
+    })();</script><script>(function () {
+      var tables = document.querySelectorAll(".terminal article table");
+      tables.forEach(function (table) {
+        var headers = Array.from(table.querySelectorAll("thead th")).map(function (th) {
+          return th.textContent.trim();
+        });
+        var wideTable = headers.length >= 6;
+
+        if (wideTable) {
+          var rows = Array.from(table.querySelectorAll("tbody tr"));
+          if (rows.length) {
+            var cards = document.createElement("section");
+            cards.className = "table-cards";
+
+            rows.forEach(function (row) {
+              var cells = Array.from(row.querySelectorAll("td"));
+              if (!cells.length) return;
+
+              var card = document.createElement("article");
+              card.className = "table-card";
+
+              var title = document.createElement("h4");
+              title.textContent = cells[0].textContent.trim();
+              card.appendChild(title);
+
+              var body = document.createElement("dl");
+              for (var i = 1; i < Math.min(cells.length, headers.length); i++) {
+                var term = document.createElement("dt");
+                term.textContent = headers[i];
+                var value = document.createElement("dd");
+                value.innerHTML = cells[i].innerHTML;
+                body.appendChild(term);
+                body.appendChild(value);
+              }
+              card.appendChild(body);
+              cards.appendChild(card);
+            });
+
+            table.parentNode.insertBefore(cards, table);
+            table.remove();
+            return;
+          }
+        }
+
+        if (table.parentElement && table.parentElement.classList.contains("table-scroll")) return;
+        var wrap = document.createElement("div");
+        wrap.className = "table-scroll";
+        table.parentNode.insertBefore(wrap, table);
+        wrap.appendChild(table);
+      });
+    })();</script>
