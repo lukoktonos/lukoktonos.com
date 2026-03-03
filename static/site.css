@@ -302,6 +302,112 @@ pre {
   outline-offset: 1px;
 }
 
+.terminal article p code,
+.terminal article li code,
+.terminal article td code,
+.terminal article th code {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.05rem 0.35rem;
+}
+
+.terminal article pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.terminal article blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 0.9rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(0, 0, 0, 0.18);
+  color: color-mix(in srgb, var(--fg) 90%, white 10%);
+}
+
+.terminal article .table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1.2rem 0;
+  border: 1px dashed var(--border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.terminal article table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.95rem;
+}
+
+.terminal article table thead th {
+  color: var(--heading);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.terminal article table th:nth-child(1),
+.terminal article table td:nth-child(1) {
+  width: 17%;
+}
+
+.terminal article table th:nth-child(2),
+.terminal article table td:nth-child(2) {
+  width: 36%;
+}
+
+.terminal article table th:nth-child(3),
+.terminal article table td:nth-child(3) {
+  width: 47%;
+}
+
+.terminal article table th,
+.terminal article table td {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px dashed var(--divider);
+  text-align: left;
+  vertical-align: top;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.terminal article table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.terminal article .table-cards {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+.terminal article .table-card {
+  border: 1px dashed var(--border);
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.75rem 0.85rem;
+}
+
+.terminal article .table-card h4 {
+  margin: 0 0 0.45rem;
+}
+
+.terminal article .table-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: 0.25rem 0.75rem;
+}
+
+.terminal article .table-card dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.terminal article .table-card dd {
+  margin: 0;
+}
+
 @media (max-width: 720px) {
   .shell {
     width: 94vw;

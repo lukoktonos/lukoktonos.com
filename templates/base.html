@@ -102,6 +102,59 @@
       });
     })();
   </script>
+  <script>
+    (function () {
+      var tables = document.querySelectorAll(".terminal article table");
+      tables.forEach(function (table) {
+        var headers = Array.from(table.querySelectorAll("thead th")).map(function (th) {
+          return th.textContent.trim();
+        });
+        var wideTable = headers.length >= 6;
+
+        if (wideTable) {
+          var rows = Array.from(table.querySelectorAll("tbody tr"));
+          if (rows.length) {
+            var cards = document.createElement("section");
+            cards.className = "table-cards";
+
+            rows.forEach(function (row) {
+              var cells = Array.from(row.querySelectorAll("td"));
+              if (!cells.length) return;
+
+              var card = document.createElement("article");
+              card.className = "table-card";
+
+              var title = document.createElement("h4");
+              title.textContent = cells[0].textContent.trim();
+              card.appendChild(title);
+
+              var body = document.createElement("dl");
+              for (var i = 1; i < Math.min(cells.length, headers.length); i++) {
+                var term = document.createElement("dt");
+                term.textContent = headers[i];
+                var value = document.createElement("dd");
+                value.innerHTML = cells[i].innerHTML;
+                body.appendChild(term);
+                body.appendChild(value);
+              }
+              card.appendChild(body);
+              cards.appendChild(card);
+            });
+
+            table.parentNode.insertBefore(cards, table);
+            table.remove();
+            return;
+          }
+        }
+
+        if (table.parentElement && table.parentElement.classList.contains("table-scroll")) return;
+        var wrap = document.createElement("div");
+        wrap.className = "table-scroll";
+        table.parentNode.insertBefore(wrap, table);
+        wrap.appendChild(table);
+      });
+    })();
+  </script>
   {% block extra_scripts %}{% endblock extra_scripts %}
 </body>
 </html>

@@ -8,6 +8,9 @@ feed_filenames = ["atom.xml"]
 
 taxonomies = [{ name = "tags" }]
 
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
 [extra]
 github_url = "https://github.com/lukoktonos"
 repo_url = "https://github.com/lukoktonos/lukoktonos.com"
