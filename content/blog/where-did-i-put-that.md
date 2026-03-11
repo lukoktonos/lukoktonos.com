@@ -3,6 +3,8 @@ title = "Where Did I Put That?"
 date = 2026-03-03
 +++
 
+*Note: This post was written with Claude as an experiment in AI-assisted writing.*
+
 *A survey of file systems and object stores — from spinning disks to distributed blobs — and what actually matters when you're choosing one.*
 
 ## "The Lie That Cost Us the Weekend"
