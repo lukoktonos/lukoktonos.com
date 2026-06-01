@@ -40,8 +40,6 @@
     <header class="shell-header">
       <a class="brand" href="{{ get_url(path='@/_index.md') }}">lukoktonos.com</a>
       <nav>
-        <a href="{{ get_url(path='@/blog/_index.md') }}">blog</a>
-        <a href="{{ get_url(path='blog/atom.xml') }}">feed</a>
         <a href="{{ config.extra.github_url }}">github</a>
       </nav>
     </header>
@@ -52,7 +50,6 @@
 
     <footer class="shell-footer">
       <span>&copy; {{ now() | date(format="%Y") }} Luke Osborne</span>
-      <p class="footer-disclaimer">The opinions on this site are my own. They do not necessarily represent those of my employer.</p>
       <div class="footer-controls">
         <div class="theme-buttons" aria-label="Terminal color selector">
           <button type="button" class="theme-btn theme-btn--yellow" data-theme="yellow">Yellow</button>
